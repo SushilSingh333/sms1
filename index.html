@@ -12,6 +12,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="preconnect" href="https://apiv2.aajneetiadvertising.com" crossorigin>
 </head>
 <body>
 
@@ -147,20 +149,20 @@
                         <p>Fill the form below. Our team will reach out within 24 hours.</p>
                     </div>
 
-                    <form class="inquiry-form" data-form="hero" novalidate>
+                    <form class="inquiry-form" id="ajax-header-contact">
                         <div class="form-group">
                             <label for="hero-name">Your Name *</label>
-                            <input type="text" id="hero-name" name="FirstName" placeholder="Enter your full name" required>
+                            <input type="text" id="hero-name" name="form_name" placeholder="Enter your full name" required>
                         </div>
 
                         <div class="form-group">
                             <label for="hero-phone">Phone Number *</label>
-                            <input type="tel" id="hero-phone" name="MobileNumber" placeholder="10-digit mobile number" pattern="[0-9]{10}" maxlength="10" required>
+                            <input type="tel" id="hero-phone" name="form_mobile" placeholder="10-digit mobile number" pattern="[0-9]{10}" maxlength="10" required>
                         </div>
 
                         <div class="form-group">
                             <label for="hero-course">Select Course *</label>
-                            <select id="hero-course" name="Center" required>
+                            <select id="hero-course" name="form_course" required>
                                 <option value="">Choose a program</option>
                                 <option value="BCA">BCA</option>
                                 <option value="BCOM(H)">BCOM(H)</option>
@@ -174,12 +176,12 @@
 
                         <div class="form-group">
                             <label for="hero-city">Your City *</label>
-                            <input type="text" id="hero-city" name="City" placeholder="e.g., Varanasi" required>
+                            <input type="text" id="hero-city" name="form_city" placeholder="e.g., Varanasi" required>
                         </div>
 
                         <div class="form-group">
                             <label for="hero-email">Email Address *</label>
-                            <input type="email" id="hero-email" name="Email" placeholder="you@example.com" required>
+                            <input type="email" id="hero-email" name="form_email" placeholder="you@example.com" required>
                         </div>
 
                         <button type="submit" class="btn btn-primary btn-block">
@@ -768,20 +770,20 @@
                 </div>
 
                 <div class="modal-form-wrap">
-                    <form class="inquiry-form" data-form="modal" novalidate>
+                    <form class="inquiry-form" data-form="modal" novalidate id="ajax-header-contact-2">
                         <div class="form-group">
                             <label for="m-name">Your Name *</label>
-                            <input type="text" id="m-name" name="FirstName" placeholder="Enter your full name" required>
+                            <input type="text" id="m-name" name="form_name" placeholder="Enter your full name" required>
                         </div>
 
                         <div class="form-group">
                             <label for="m-phone">Phone Number *</label>
-                            <input type="tel" id="m-phone" name="MobileNumber" placeholder="10-digit mobile number" pattern="[0-9]{10}" maxlength="10" required>
+                            <input type="tel" id="m-phone" name="form_mobile" placeholder="10-digit mobile number" pattern="[0-9]{10}" maxlength="10" required>
                         </div>
 
                         <div class="form-group">
                             <label for="m-course">Select Course *</label>
-                            <select id="m-course" name="Center" required>
+                            <select id="m-course" name="form_course" required>
                                 <option value="">Choose a program</option>
                                 <option value="BCA">BCA</option>
                                 <option value="BCOM(H)">BCOM(H)</option>
@@ -795,12 +797,12 @@
 
                         <div class="form-group">
                             <label for="m-city">Your City *</label>
-                            <input type="text" id="m-city" name="City" placeholder="e.g., Varanasi" required>
+                            <input type="text" id="m-city" name="form_city" placeholder="e.g., Varanasi" required>
                         </div>
 
                         <div class="form-group">
                             <label for="m-email">Email Address *</label>
-                            <input type="email" id="m-email" name="Email" placeholder="you@example.com" required>
+                            <input type="email" id="m-email" name="form_email" placeholder="you@example.com" required>
                         </div>
 
                         <button type="submit" class="btn btn-primary btn-block">
@@ -830,5 +832,6 @@
     </div>
 
     <script src="script.js"></script>
+    <script src="form.js"></script>
 </body>
 </html>

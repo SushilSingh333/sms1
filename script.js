@@ -145,49 +145,6 @@
         return isValid;
     };
 
-    const handleFormSubmit = (form) => {
-        const fields = $$('input[required], select[required]', form);
-        let allValid = true;
-
-        fields.forEach(field => {
-            if (!validateField(field)) allValid = false;
-        });
-
-        if (!allValid) {
-            const firstError = form.querySelector('.error');
-            firstError && firstError.focus();
-            showToast('Please fill all fields correctly.');
-            return;
-        }
-
-        // Gather data
-        const data = {};
-        new FormData(form).forEach((v, k) => { data[k] = v; });
-        // Hidden meta (mirrors the original WP form payload)
-        data.AuthToken = 'SMSVARANASI-11-03-2021';
-        data.Source = 'smsvaranasi';
-        data.LeadType = 'Online';
-        data.LeadName = 'aajneeti Google ads';
-        data.LeadSource = 'SMSadword';
-
-        // === Replace with real API call ===
-        // fetch('/api/inquiry', { method: 'POST', headers: {'Content-Type':'application/json'}, body: JSON.stringify(data) })
-
-        console.log('[SMS Varanasi] Inquiry submitted:', data);
-
-        // Show success state
-        const successEl = form.parentElement.querySelector('.form-success');
-        form.style.display = 'none';
-        if (successEl) successEl.hidden = false;
-        showToast('Thank you! Your brochure is on the way.');
-
-        // Reset after 6s so user can submit again
-        setTimeout(() => {
-            form.reset();
-            form.style.display = '';
-            if (successEl) successEl.hidden = true;
-        }, 6000);
-    };
 
     $$('.inquiry-form').forEach(form => {
         form.addEventListener('submit', e => {

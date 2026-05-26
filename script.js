@@ -19,11 +19,13 @@
 
     /* ---------- Modal ---------- */
     const modal = $('#brochureModal');
+    let modalShown = false;
     const openModal = (preselectCourse) => {
         if (!modal) return;
         modal.classList.add('open');
         modal.setAttribute('aria-hidden', 'false');
         document.body.style.overflow = 'hidden';
+        modalShown = true;
 
         if (preselectCourse) {
             const sel = $('#m-course');
@@ -42,6 +44,28 @@
         modal.setAttribute('aria-hidden', 'true');
         document.body.style.overflow = '';
     };
+
+    /* ---------- Auto-open inquiry modal after 15s (once per session) ---------- */
+    const AUTO_OPEN_KEY = 'sms_auto_modal_shown';
+    const AUTO_OPEN_DELAY = 15000;
+    if (modal && !sessionStorage.getItem(AUTO_OPEN_KEY)) {
+        const timer = setTimeout(() => {
+            // Don't pop if user already opened it manually or any form is in success state
+            const anySuccessVisible = $$('.form-success').some(el => !el.hidden);
+            if (!modalShown && !anySuccessVisible && !modal.classList.contains('open')) {
+                openModal();
+                sessionStorage.setItem(AUTO_OPEN_KEY, '1');
+            }
+        }, AUTO_OPEN_DELAY);
+
+        // If user opens the modal manually before timer fires, cancel auto-open
+        $$('[data-modal-open]').forEach(btn => {
+            btn.addEventListener('click', () => {
+                clearTimeout(timer);
+                sessionStorage.setItem(AUTO_OPEN_KEY, '1');
+            }, { once: true });
+        });
+    }
 
     $$('[data-modal-open]').forEach(btn => {
         btn.addEventListener('click', e => {

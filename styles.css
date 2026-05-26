@@ -1612,8 +1612,10 @@ h1, h2, h3, h4, h5 { margin: 0; color: var(--ink); font-weight: 700; letter-spac
     .why-us-grid, .about-grid { grid-template-columns: 1fr; gap: 40px; }
     .placement-stats { grid-template-columns: repeat(2, 1fr); }
     .footer-inner { grid-template-columns: 1fr 1fr; gap: 40px; }
-    .modal-grid { grid-template-columns: 1fr; }
-    .modal-info { padding: 40px 30px; }
+    .modal-grid { grid-template-columns: 1fr; min-height: auto; }
+    .modal-info { padding: 28px 26px 22px; }
+    .modal-info > p { margin-bottom: 14px; font-size: 14px; }
+    .modal-points li { font-size: 13.5px; }
     .slider-arrow.slider-prev { left: 6px; }
     .slider-arrow.slider-next { right: 6px; }
 }
@@ -1697,8 +1699,28 @@ h1, h2, h3, h4, h5 { margin: 0; color: var(--ink); font-weight: 700; letter-spac
     .floating-actions { right: 14px; bottom: 14px; gap: 12px; }
     .float-btn { width: 50px; height: 50px; font-size: 20px; }
     .float-tip { display: none; }
-    .modal-info, .modal-form-wrap { padding: 28px 22px; }
-    .modal-info h2 { font-size: 22px; }
+    /* Compact modal on mobile — fit form in one viewport */
+    .modal { padding: 0; }
+    .modal-dialog { border-radius: 16px; max-width: 100%; margin: 12px; }
+    .modal-grid { display: block; }
+    .modal-info {
+        padding: 18px 22px 14px;
+        text-align: center;
+    }
+    .modal-info::before { display: none; }
+    .modal-info .eyebrow { display: none; }
+    .modal-info h2 { font-size: 18px; line-height: 1.25; margin-bottom: 4px; }
+    .modal-info > p { font-size: 12.5px; margin-bottom: 0; opacity: 0.9; }
+    .modal-points { display: none; }
+    .modal-form-wrap { padding: 16px 20px 18px; }
+    .modal-form-wrap .inquiry-form { gap: 10px; }
+    .modal-form-wrap .form-group { gap: 4px; }
+    .modal-form-wrap .form-group label { font-size: 11px; }
+    .modal-form-wrap .inquiry-form input,
+    .modal-form-wrap .inquiry-form select { padding: 10px 12px; font-size: 14px; }
+    .modal-form-wrap .btn { padding: 12px 18px; font-size: 14px; }
+    .modal-form-wrap .form-note { font-size: 11px; margin-top: 2px; }
+    .modal-close { width: 32px; height: 32px; font-size: 13px; top: 10px; right: 10px; }
     .logo-img { height: 46px; }
     .placement-stats { gap: 14px; }
     .p-stat { padding: 24px 14px; }
@@ -1737,8 +1759,16 @@ h1, h2, h3, h4, h5 { margin: 0; color: var(--ink); font-weight: 700; letter-spac
     .cta-card h2 { font-size: 1.4rem; }
     .cta-card p { font-size: 14.5px; }
     .video-card.video-fb .fb-reel-wrap { max-width: 280px; }
-    .modal { padding: 0; }
-    .modal-dialog { border-radius: 0; max-height: 100vh; height: 100vh; }
+    .modal-dialog { border-radius: 14px; margin: 10px; max-height: 96vh; }
+    .modal-info { padding: 16px 18px 12px; }
+    .modal-info h2 { font-size: 16.5px; }
+    .modal-info > p { font-size: 12px; }
+    .modal-form-wrap { padding: 14px 18px 16px; }
+    .modal-form-wrap .inquiry-form { gap: 9px; }
+    .modal-form-wrap .inquiry-form input,
+    .modal-form-wrap .inquiry-form select { padding: 9px 12px; font-size: 13.5px; }
+    .modal-form-wrap .form-group label { font-size: 10.5px; }
+    .modal-form-wrap .btn { padding: 11px 18px; font-size: 13.5px; }
     .form-group label { font-size: 11.5px; }
     .inquiry-form input,
     .inquiry-form select { padding: 12px 14px; font-size: 14.5px; }

@@ -134,7 +134,7 @@ async function handleFormSubmit(formId) {
       const data = await response.json();
       console.log("Response:", data);
 
-      window.location.href = "admission2026/thankyou.html";
+      window.location.href = "/thankyou.html";
 
     } catch (error) {
       console.error("Error:", error);
